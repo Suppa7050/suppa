@@ -1,62 +1,45 @@
 
 <!DOCTYPE html>
+<html>
 <head>
-	<title>Display Table</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="favicon.png">
-    <style>
-        table,td{
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-        tbody{
-            display: none;
-        }
-        tr:nth-child(odd){
-            background-color: rgba(98, 148, 71, 0.4);
-        }
-    </style>
+	<title>Exercise-2</title>
+	<style>
+		body {
+			background-color: black;
+		}
+		table {
+			background-color:pink ;
+			color: black
+			height: 300px;
+			width: 300px;
+			text-align: center;
+			border-color: red;
+		}
+	</style>
 </head>
 <body>
-    <div class="container">
-        <button onclick="fun()">Click me to see the table</button>
-        <p></p>
-        <table id="table">
-            <tbody id="tableb">
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <script>
-            function fun()
-            {
-                const a=["Anakin","Obi-Wan","Luke","Leia"]
-                document.getElementById("tableb").style.display="table-row-group";
-                var t=document.getElementById("table");
-                for(var i=0;i<t.rows.length;i++)
-                {
-                    t.rows[i].cells[0].innerHTML=i+1;
-                    t.rows[i].cells[1].innerHTML=a[i];
-                }
-            }
-        </script>
-    </div>
-    </div>
+	<center>
+	<button id = "button" onclick="getTable()">Click Me to see the table</button>
+	<p id = "demo"></p>
+	</center>
+	<script>
+		function getTable()
+		{
+			const names = ["Anakin", "Obi-Wan", "Luke", "Leia"];
+			var text = "";
+			var i = 1;
+			for (var r = 0; r < names.length; r++)
+			{
+				text += '<tr>';
+				text += '<td>' + i 	+ '</td>';
+				text += '<td>' + names[r] + '</td>';
+				text += '</tr>';
+				i = i+1;
+			}
+			document.getElementById("demo").innerHTML = ('<table border = 1>' + text + '</table>');
+		}
+	</script>
 </body>
 </html>
